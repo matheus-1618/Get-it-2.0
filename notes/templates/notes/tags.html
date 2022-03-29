@@ -1,0 +1,24 @@
+{% extends "notes/base.html" %}
+{% load static %}
+
+{% block content %}
+<main class="container">
+<h1 class="tag-title">Tags utilizadas</h1>
+<ul class="tag-container" id="card-container">
+    {% for tag in tags %}
+  <form method="post" action="{% url 'tagviewer' %}">
+    {% csrf_token %}
+  <li class="tagutil" id="card">
+    <input type="hidden" name="tag" value="{{tag.id}}"/>
+    <button class="button" type="submit">
+      <h3 class="card-tagtitle">#{{ tag.title }}</h3>
+    </button>
+  </form>
+      {% endfor %}
+    </p>
+  </div>
+  </li>
+</ul>
+
+{% endblock %}
+</main>
